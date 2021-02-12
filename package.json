@@ -1,0 +1,30 @@
+{
+  "name": "com.we60devs.plugins.AudioLibrary",
+  "version": "0.0.1",
+  "description": "A generic Cordova plugin for querying audios files on Android and Ios devices.",
+  "cordova": {
+    "id": "com.we60devs.plugins.AudioLibrary",
+    "platforms": [
+      "android",
+      "ios
+     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishigo1987/cordova-plugin-audio-library.git"
+  },
+  "keywords": [
+    "cordova",
+    "device",
+    "audio",
+    "query",
+    "ios",
+    "android"
+  ],
+  "author": "milworm",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/milworm/cordova-plugin-audio-library/issues"
+  },
+  "homepage": "https://github.com/milworm/cordova-plugin-audio-library#readme"
+}
