@@ -6,7 +6,7 @@
     "id": "com.we60devs.plugins.AudioLibrary",
     "platforms": [
       "android",
-      "ios
+      "ios"
      ]
   },
   "repository": {
