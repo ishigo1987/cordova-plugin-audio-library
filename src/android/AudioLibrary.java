@@ -54,6 +54,8 @@ public class AudioLibrary extends CordovaPlugin  {
     private void getList() {
 
         final String sortOrder = MediaStore.Audio.AudioColumns.TITLE + " COLLATE LOCALIZED ASC";
+        
+       
 
         Cursor cursor = null;
         String selection = MediaStore.Audio.Media.IS_MUSIC + "<>0";
@@ -69,13 +71,14 @@ public class AudioLibrary extends CordovaPlugin  {
         JSONArray result = new JSONArray();
 
         try {
+            String stateaudio = "Not playing";
             Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
             cursor = this.cordova.getActivity().getContentResolver().query(uri, projection, selection, null, sortOrder);
 
             if (cursor != null) {
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()) {
-                    if(cursor.getColumnCount() == 7) {
+                    if(cursor.getColumnCount() == 6) {
                         JSONObject item = new JSONObject();
                         item.put("title", cursor.getString(0));
                         item.put("artist", cursor.getString(1));
@@ -83,7 +86,7 @@ public class AudioLibrary extends CordovaPlugin  {
                         item.put("duration", cursor.getString(3));
                         item.put("_id", cursor.getString(4));
                         item.put("album", cursor.getString(5));
-                        item.put("stateAudio", "Not playing");
+                        item.put("stateAudio", stateaudio);
                         result.put(item);
                     }
                     cursor.moveToNext();
