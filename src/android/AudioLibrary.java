@@ -62,7 +62,8 @@ public class AudioLibrary extends CordovaPlugin  {
                 MediaStore.Audio.Media.ARTIST,
                 MediaStore.Audio.Media.DATA,
                 MediaStore.Audio.Media.DURATION,
-                MediaStore.Audio.Media._ID
+                MediaStore.Audio.Media._ID,
+                MediaStore.Audio.Albums.ALBUM_ART
         };
 
         JSONArray result = new JSONArray();
@@ -74,13 +75,14 @@ public class AudioLibrary extends CordovaPlugin  {
             if (cursor != null) {
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()) {
-                    if(cursor.getColumnCount() == 5) {
+                    if(cursor.getColumnCount() == 6) {
                         JSONObject item = new JSONObject();
                         item.put("title", cursor.getString(0));
                         item.put("artist", cursor.getString(1));
                         item.put("path", cursor.getString(2));
                         item.put("duration", cursor.getString(3));
                         item.put("_id", cursor.getString(4));
+                        item.put("album_thumbnail", cursor.getString(5));
                         result.put(item);
                     }
                     cursor.moveToNext();
