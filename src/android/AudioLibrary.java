@@ -75,7 +75,7 @@ public class AudioLibrary extends CordovaPlugin  {
             if (cursor != null) {
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()) {
-                    if(cursor.getColumnCount() == 6) {
+                    if(cursor.getColumnCount() == 7) {
                         JSONObject item = new JSONObject();
                         item.put("title", cursor.getString(0));
                         item.put("artist", cursor.getString(1));
@@ -83,6 +83,7 @@ public class AudioLibrary extends CordovaPlugin  {
                         item.put("duration", cursor.getString(3));
                         item.put("_id", cursor.getString(4));
                         item.put("album", cursor.getString(5));
+                        item.put("stateAudio, "Not playing");
                         result.put(item);
                     }
                     cursor.moveToNext();
