@@ -63,7 +63,7 @@ public class AudioLibrary extends CordovaPlugin  {
                 MediaStore.Audio.Media.DATA,
                 MediaStore.Audio.Media.DURATION,
                 MediaStore.Audio.Media._ID,
-                MediaStore.Audio.Albums.ALBUM_ART
+                MediaStore.Audio.Media.ALBUM
         };
 
         JSONArray result = new JSONArray();
@@ -82,7 +82,7 @@ public class AudioLibrary extends CordovaPlugin  {
                         item.put("path", cursor.getString(2));
                         item.put("duration", cursor.getString(3));
                         item.put("_id", cursor.getString(4));
-                        item.put("album_thumbnail", cursor.getString(5));
+                        item.put("album", cursor.getString(5));
                         result.put(item);
                     }
                     cursor.moveToNext();
