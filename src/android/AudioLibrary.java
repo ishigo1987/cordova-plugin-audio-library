@@ -83,7 +83,7 @@ public class AudioLibrary extends CordovaPlugin  {
                         item.put("duration", cursor.getString(3));
                         item.put("_id", cursor.getString(4));
                         item.put("album", cursor.getString(5));
-                        item.put("stateAudio, "Not playing");
+                        item.put("stateAudio", "Not playing");
                         result.put(item);
                     }
                     cursor.moveToNext();
