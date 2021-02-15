@@ -71,7 +71,9 @@ public class AudioLibrary extends CordovaPlugin  {
         JSONArray result = new JSONArray();
 
         try {
+            // This two variables are specific to my project (Ishigo1987), ignore them
             String stateaudio = "Not playing";
+            String albumart = "src/icons/music.png";
             Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
             cursor = this.cordova.getActivity().getContentResolver().query(uri, projection, selection, null, sortOrder);
 
@@ -87,6 +89,7 @@ public class AudioLibrary extends CordovaPlugin  {
                         item.put("_id", cursor.getString(4));
                         item.put("album", cursor.getString(5));
                         item.put("stateAudio", stateaudio);
+                        item.put("albumArt", albumart);
                         result.put(item);
                     }
                     cursor.moveToNext();
